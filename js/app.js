@@ -34,6 +34,7 @@ const allOperator = document.querySelectorAll('.boton-oper');
 
 //Seleccionador del boton eliminar
 const eliminarAll = document.querySelector("#content-eliminar");
+const eliminarOne = document.querySelector('#content-eliminar-one');
 //Span para mostrar Error
 const aviso = document.querySelector('#aviso-error');
 
@@ -128,14 +129,6 @@ function eventosOperadores() {
     });
 }
 
-eliminarAll.addEventListener('click', () => {
-    operador1.innerHTML = "";
-    operador2.innerHTML = "";
-    operacion.innerHTML = "";
-    resultado.innerHTML = "";
-
-})
-
 igual.addEventListener('click', () => {
     if (operador1.textContent && operador2.textContent && operacion.textContent) {
         operadorOne = parseInt(operador1.textContent, 10);
@@ -148,12 +141,12 @@ igual.addEventListener('click', () => {
                 resultado.innerHTML = restas(operadorOne, operadorTwo);
                 break;
             case "/":
-                if(operadorTwo !== 0){
+                if (operadorTwo !== 0) {
                     resultado.innerHTML = divisiones(operadorOne, operadorTwo);
-                }else{
+                } else {
                     mostrarMensaje("No se puede dividir por cero!!!");
                 }
-                
+
                 break;
             case "*":
                 resultado.innerHTML = multiplicaciones(operadorOne, operadorTwo);
@@ -166,9 +159,9 @@ igual.addEventListener('click', () => {
 })
 
 const sumas = (op1, op2) => op1 + op2;
-const restas=(op1,op2)=> op1 - op2;
-const divisiones=(op1,op2)=> op1 / op2;
-const multiplicaciones=(op1,op2)=> op1 * op2;
+const restas = (op1, op2) => op1 - op2;
+const divisiones = (op1, op2) => op1 / op2;
+const multiplicaciones = (op1, op2) => op1 * op2;
 
 
 
@@ -178,3 +171,37 @@ function mostrarMensaje(mensaje) {
         aviso.innerHTML = "";
     }, 3000)
 }
+
+eliminarAll.addEventListener('click', () => {
+    operador1.innerHTML = "";
+    operador2.innerHTML = "";
+    operacion.innerHTML = "";
+    resultado.innerHTML = "";
+
+})
+
+eliminarOne.addEventListener('click', () => {
+
+    if (OperadorVacio()) {
+        if (operador1.textContent) {
+            //str = str.substring(0, str.length - 1);
+            let numero = operador1.textContent;
+            numero=numero.substring(0,numero.length-1);
+            operador1.innerHTML=numero;
+
+        } else {
+            mostrarMensaje("No hay nada que eliminar");
+        }
+    } else {
+        if (operador2.textContent) {
+            let numero = operador2.textContent;
+            numero=numero.substring(0,numero.length-1);
+            operador2.innerHTML=numero;
+        } else {
+            mostrarMensaje("No hay nada que eliminar");
+        }
+        
+    }
+
+
+})

@@ -197,11 +197,17 @@ body {
     color: white;
 }
 
-#content-eliminar {
-    width: 95%;
+#all-eliminar{
+    width: 97%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boton-eliminar {
+    width: 45%;
     height: 50px;
     background: red;
-    border-radius: 0px 0px 20px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -209,12 +215,19 @@ body {
     margin-top: 6%;
     ;
 }
-#content-eliminar:hover{
+.boton-eliminar:hover{
     background: rgb(247, 58, 58);
     cursor: pointer;
 }
+#content-eliminar{
+    border-radius: 0px 0px 0px 20px;
+}
+#content-eliminar-one{
+    border-radius: 0px 0px 20px 0px;
+}
 
-#content-eliminar span {
+
+.boton-eliminar span {
     font-size: 30px;
     color: black;
 }

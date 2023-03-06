@@ -144,7 +144,7 @@ igual.addEventListener('click', () => {
                 if (operadorTwo !== 0) {
                     resultado.innerHTML = divisiones(operadorOne, operadorTwo);
                 } else {
-                    mostrarMensaje("No se puede dividir por cero!!!");
+                    mostrarMensaje("No se puede dividir por cero!!! :)");
                 }
 
                 break;
@@ -153,7 +153,7 @@ igual.addEventListener('click', () => {
                 break;
         }
     } else {
-        mostrarMensaje("Debes tener los dos operando!!!");
+        mostrarMensaje("Debes tener los dos operando!!! :)");
     }
 
 })
@@ -181,27 +181,32 @@ eliminarAll.addEventListener('click', () => {
 })
 
 eliminarOne.addEventListener('click', () => {
-
-    if (OperadorVacio()) {
-        if (operador1.textContent) {
-            //str = str.substring(0, str.length - 1);
-            let numero = operador1.textContent;
-            numero=numero.substring(0,numero.length-1);
-            operador1.innerHTML=numero;
-
+    if(!resultado.textContent){
+        if (OperadorVacio()) {
+            if (operador1.textContent) {
+                //str = str.substring(0, str.length - 1);
+                let numero = operador1.textContent;
+                numero=numero.substring(0,numero.length-1);
+                operador1.innerHTML=numero;
+    
+            } else {
+                mostrarMensaje("No hay nada que eliminar :)");
+            }
         } else {
-            mostrarMensaje("No hay nada que eliminar");
+            if (operador2.textContent) {
+                let numero = operador2.textContent;
+                numero=numero.substring(0,numero.length-1);
+                operador2.innerHTML=numero;
+            } else {
+                mostrarMensaje("No hay nada que eliminar :)");
+            }
+            
         }
-    } else {
-        if (operador2.textContent) {
-            let numero = operador2.textContent;
-            numero=numero.substring(0,numero.length-1);
-            operador2.innerHTML=numero;
-        } else {
-            mostrarMensaje("No hay nada que eliminar");
-        }
-        
+    }else{
+        mostrarMensaje("Usa el Clear :) ");
     }
+
+    
 
 
 })
